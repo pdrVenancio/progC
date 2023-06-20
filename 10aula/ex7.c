@@ -13,40 +13,24 @@ int main()
     int i;
     char pesq[99] ;
 
-/*
-for ( i = 0; i < 8; i++)
-    {
-        scanf("%[^\n] %[^\n] %d%*c", l[i].ttl, l[i].escritor, &l[i].ano);
-    }
+ for ( i = 0; i < 8; i++)
+    scanf("%[^\n]%*c %[^\n]%*c %d%*c", l[i].ttl, l[i].escritor, &l[i].ano);
 
-do {
-    fgets(pesq, 99, stdin);
 
-    printf("Livros de %s: ", pesq);
+   while (strcmp(pesq, "sair") != 0)
+   {
+        scanf("%[^\n]%*c", pesq);
+        
+        if (strcmp(pesq, "sair") == 0)
+            return 0;
+            
+        printf("Livros de %s:\n", pesq);
 
-    for ( i = 0; i < 8; i++)
-        if (strcmp(pesq, l[i].escritor) == 0)
-        {
-            printf("%s (%d)\n", l[i].ttl, l[i].ano);
-        }
-    printf("\n");
-
-} while (strcmp(pesq, "sair\n") != 0);
-*/   
-    fgets(l[0].escritor, 99, stdin);
-    fgets(pesq, 99, stdin);
-
-    i = 0;
-    while(pesq[i] != '\0')
-    {
-        printf("%d ", pesq[i]);i++;
-    }
-     printf("\n ");
-    i = 0;
-    while(l[0].escritor[i] != '\0')
-    {
-        printf("%d ", l[0].escritor[i]);i++;
-    }
-       
+        for ( i = 0; i < 8; i++)
+            if (strcmp(pesq, l[i].escritor) == 0)
+                printf("%s (%d)\n", l[i].ttl, l[i].ano);
+            
+        printf("\n");
+   }
     return 0;
 }
