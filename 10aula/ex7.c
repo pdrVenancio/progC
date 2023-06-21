@@ -34,5 +34,3 @@ int main()
    }
     return 0;
 }
-
-//texte no codigo
