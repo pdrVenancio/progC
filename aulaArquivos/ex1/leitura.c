@@ -5,7 +5,7 @@
 int main(){
 
     int hab, maxhab = 0;
-    char nCit[40], maxC[40];
+    char nCit[40], maxC[40]; 
 
     FILE *arq = NULL;
 
@@ -28,12 +28,30 @@ int main(){
     			strcpy(maxC,nCit);
     		}
     		
-    		printf("%s\t%d\n", nCit, hab);
-        	fscanf(arq, "%[^\t] %d", nCit, &hab);
+    		     	fscanf(arq, "%[^\t] %d", nCit, &hab);
+    }
+
+		printf("%s --- %d", maxC, maxhab);
+    
+    char nome[90];
+    
+    printf("\nnome do arquivo\n");
+    scanf("%[^\n]", nome);
+	
+    FILE *arqresp = NULL;
+    
+    arqresp = fopen(nome, "w");
+    
+    if(arqresp == NULL)
+    {
+    	printf("deu merda");
+    	exit(1);
     }
     
-    printf("%s --- %d\n", maxC, maxhab);
-
+    fprintf(arqresp, "%s %d", maxC, maxhab);
+	
+	
+	fclose(arqresp);
     fclose(arq);
 
     return 0;
